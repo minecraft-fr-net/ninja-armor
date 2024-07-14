@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "ninja-armor-mod",
+	"version": "${version}",
+	"name": "Ninja Armor Mod",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/ninja-armor-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.cprodhomme.NinjaArmorMod"
+		],
+		"client": [
+			"com.cprodhomme.NinjaArmorModClient"
+		]
+	},
+	"mixins": [
+		"ninja-armor-mod.mixins.json",
+		{
+			"config": "ninja-armor-mod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

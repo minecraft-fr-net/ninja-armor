@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.cprodhomme.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExampleClientMixin",
+		"PlayerEntityRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
