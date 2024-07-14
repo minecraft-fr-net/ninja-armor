@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "ninja-armor-mod:item/stone_katana"
+  }
+}

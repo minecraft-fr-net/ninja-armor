@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "G",
+    "G",
+    "B"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold"
+    },
+    "B": {
+      "item": "minecraft:bamboo"
+    }
+  },
+  "result": {
+    "id": "ninja-armor-mod:golden_katana",
+    "count": 1
+  }
+}

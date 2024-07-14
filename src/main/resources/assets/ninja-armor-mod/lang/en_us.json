@@ -2,5 +2,10 @@
   "item.ninja-armor-mod.ninja_helmet": "Ninja Helmet",
   "item.ninja-armor-mod.ninja_boots": "Ninja Boots",
   "item.ninja-armor-mod.ninja_leggings": "Ninja Leggings",
-  "item.ninja-armor-mod.ninja_chestplate": "Ninja Chestplate"
+  "item.ninja-armor-mod.ninja_chestplate": "Ninja Chestplate",
+  "item.ninja-armor-mod.wooden_katana": "Wooden Katana",
+  "item.ninja-armor-mod.stone_katana": "Stone Katana",
+  "item.ninja-armor-mod.golden_katana": "Golden Katana",
+  "item.ninja-armor-mod.iron_katana": "Iron Katana",
+  "item.ninja-armor-mod.diamond_katana": "Diamond Katana"
 }
