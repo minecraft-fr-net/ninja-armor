@@ -1,4 +1,4 @@
-package com.cprodhomme;
+package com.cprodhomme.ninjaarmormod;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;

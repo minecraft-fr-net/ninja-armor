@@ -1,4 +1,4 @@
-package com.cprodhomme;
+package com.cprodhomme.ninjaarmormod;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.cprodhomme.mixin.client;
+package com.cprodhomme.ninjaarmormod.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

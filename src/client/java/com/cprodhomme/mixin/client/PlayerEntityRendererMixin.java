@@ -1,4 +1,4 @@
-package com.cprodhomme.mixin.client;
+package com.cprodhomme.ninjaarmormod.mixin.client;
 
 // import com.example.ninja_mod.NinjaMod;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;

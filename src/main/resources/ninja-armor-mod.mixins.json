@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "com.cprodhomme.mixin",
+	"package": "com.cprodhomme.ninjaarmormod.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"ExampleMixin"
