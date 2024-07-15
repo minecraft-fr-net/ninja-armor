@@ -1,4 +1,4 @@
-package com.cprodhomme.ninjaarmormod;
+package net.minecraftfr.ninjaarmormod;
 
 import net.fabricmc.api.ClientModInitializer;
 

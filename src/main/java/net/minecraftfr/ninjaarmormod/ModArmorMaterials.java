@@ -1,4 +1,4 @@
-package com.cprodhomme.ninjaarmormod;
+package net.minecraftfr.ninjaarmormod;
 
 import java.util.List;
 import java.util.Map;

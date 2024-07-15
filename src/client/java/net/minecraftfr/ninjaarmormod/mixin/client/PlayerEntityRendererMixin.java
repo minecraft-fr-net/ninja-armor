@@ -1,18 +1,15 @@
-package com.cprodhomme.ninjaarmormod.mixin.client;
+package net.minecraftfr.ninjaarmormod.mixin.client;
 
-// import com.example.ninja_mod.NinjaMod;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraftfr.ninjaarmormod.NinjaArmorMod;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import com.cprodhomme.NinjaArmorMod;
 
 @Mixin(PlayerEntityRenderer.class)
 public abstract class PlayerEntityRendererMixin {

@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.cprodhomme.ninjaarmormod.NinjaArmorMod"
+			"net.minecraftfr.ninjaarmormod.NinjaArmorMod"
 		],
 		"client": [
-			"com.cprodhomme.ninjaarmormod.NinjaArmorModClient"
+			"net.minecraftfr.ninjaarmormod.NinjaArmorModClient"
 		]
 	},
 	"mixins": [
