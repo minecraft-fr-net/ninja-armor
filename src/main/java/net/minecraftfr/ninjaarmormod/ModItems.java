@@ -23,25 +23,20 @@ public class ModItems {
   public static final Item DIAMOND_KATANA = register(new SwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 3, -2.4F))), "diamond_katana");
 
   public static void initialize() {
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-		  .register((itemGroup) -> itemGroup.add(ModItems.NINJA_HELMET));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.NINJA_CHESTPLATE));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-		  .register((itemGroup) -> itemGroup.add(ModItems.NINJA_LEGGINGS));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.NINJA_BOOTS));
+    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(itemGroup -> {
+      // Armor
+      itemGroup.add(ModItems.NINJA_HELMET);
+      itemGroup.add(ModItems.NINJA_CHESTPLATE);
+      itemGroup.add(ModItems.NINJA_LEGGINGS);
+      itemGroup.add(ModItems.NINJA_BOOTS);
 
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.WOODEN_KATANA));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.STONE_KATANA));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.GOLDEN_KATANA));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.IRON_KATANA));
-    ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-      .register((itemGroup) -> itemGroup.add(ModItems.DIAMOND_KATANA));
+      // Weapon
+      itemGroup.add(ModItems.WOODEN_KATANA);
+      itemGroup.add(ModItems.STONE_KATANA);
+      itemGroup.add(ModItems.GOLDEN_KATANA);
+      itemGroup.add(ModItems.IRON_KATANA);
+      itemGroup.add(ModItems.DIAMOND_KATANA);
+    });
   }
 
 	public static Item register(Item item, String id) {
