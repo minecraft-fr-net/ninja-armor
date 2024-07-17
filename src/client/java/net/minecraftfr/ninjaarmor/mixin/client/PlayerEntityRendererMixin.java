@@ -3,7 +3,9 @@ package net.minecraftfr.ninjaarmor.mixin.client;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.text.Text;
+import net.minecraftfr.ninjaarmor.ModItems;
 import net.minecraftfr.ninjaarmor.NinjaArmor;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,12 +24,11 @@ public abstract class PlayerEntityRendererMixin {
     }
   }
 
+  // Vérifie si le joueur porte l'armure de ninja
   private boolean isWearingNinjaArmor(AbstractClientPlayerEntity player) {
-    // Vérifie si le joueur porte l'armure de ninja
-    // Remplace cette logique par la vérification réelle de ton armure custom
-    return player.getInventory().armor.get(0).getItem().getTranslationKey().contains("ninja") &&
-            player.getInventory().armor.get(1).getItem().getTranslationKey().contains("ninja") &&
-            player.getInventory().armor.get(2).getItem().getTranslationKey().contains("ninja") &&
-            player.getInventory().armor.get(3).getItem().getTranslationKey().contains("ninja");
+    return player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.NINJA_HELMET &&
+           player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.NINJA_CHESTPLATE &&
+           player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.NINJA_LEGGINGS &&
+           player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.NINJA_BOOTS;
   }
 }
