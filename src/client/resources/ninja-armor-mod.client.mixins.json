@@ -3,7 +3,6 @@
 	"package": "net.minecraftfr.ninjaarmormod.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin",
 		"PlayerEntityRendererMixin"
 	],
 	"injectors": {
