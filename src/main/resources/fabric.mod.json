@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "ninja-armor-mod",
+	"id": "ninja-armor",
 	"version": "${version}",
-	"name": "Ninja Armor Mod",
+	"name": "Ninja Armor",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,20 +12,20 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/ninja-armor-mod/icon.png",
+	"icon": "assets/ninja-armor/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.minecraftfr.ninjaarmormod.NinjaArmorMod"
+			"net.minecraftfr.ninjaarmor.NinjaArmor"
 		],
 		"client": [
-			"net.minecraftfr.ninjaarmormod.NinjaArmorModClient"
+			"net.minecraftfr.ninjaarmor.NinjaArmorClient"
 		]
 	},
 	"mixins": [
-		"ninja-armor-mod.mixins.json",
+		"ninja-armor.mixins.json",
 		{
-			"config": "ninja-armor-mod.client.mixins.json",
+			"config": "ninja-armor.client.mixins.json",
 			"environment": "client"
 		}
 	],

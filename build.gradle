@@ -22,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"ninja-armor-mod" {
+		"ninja-armor" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
