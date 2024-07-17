@@ -17,9 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PlayerEntityRendererMixin {
   @Inject(at = @At("HEAD"), method = "renderLabelIfPresent(Lnet/minecraft/client/network/AbstractClientPlayerEntity;Lnet/minecraft/text/Text;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IF)V", cancellable = true)
   public void renderLabelIfPresent(AbstractClientPlayerEntity player, Text text, MatrixStack matrices, net.minecraft.client.render.VertexConsumerProvider vertexConsumers, int light, float distance, CallbackInfo ci) {
-    NinjaArmor.LOGGER.info("Checking if player is wearing ninja armor: ");
     if (isWearingNinjaArmor(player)) {
-      NinjaArmor.LOGGER.info("c'est bon !");
       ci.cancel();
     }
   }
