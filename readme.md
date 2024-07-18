@@ -8,3 +8,4 @@ Add Ninja armor and weapons (Katana)
 Mods tested with Ninja armor
 
 - [Helmet Overlay](https://github.com/minecraft-fr-net/helmet-overlay-mod)
+- [Better Combat](https://github.com/ZsoltMolnarrr/BetterCombat)
