@@ -6,7 +6,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.text.Text;
 import net.minecraftfr.ninjaarmor.ModItems;
-import net.minecraftfr.ninjaarmor.NinjaArmor;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
