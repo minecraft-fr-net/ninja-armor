@@ -3,6 +3,26 @@
 
 Add Ninja armor and weapons (Katana)
 
+✨ When you wear the ninja armor, your username is hidden !
+
+![Ninja armor](docs/ninja_armor.png)
+
+![items](docs/items.png)
+
+## Crafts
+
+- **Armor**
+
+All the armor can be craft as any vanilla armor with Bamboo
+
+![chestplate craft](docs/chestplate_craft.png)
+
+- **Katana**
+
+The katanas (wood/iron/gold/diamond) can be craft like a Minecraft sword with Bamboo instead of Stick
+
+![iron katana craft](docs/iron_katana_craft.png)
+
 # Compatibility
 
 Mods tested with Ninja armor
