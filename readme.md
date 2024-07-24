@@ -3,8 +3,22 @@
 
 Add Ninja armor and weapons (Katana)
 
+![Ninja armor](docs/ninja_armor.png)
+
+![items](docs/items.png)
+
+## Crafts
+
+![chestplate craft](docs/chestplate_craft.png)
+All the armor can be craft as any vanilla armor with Bamboo
+
+
+![iron katana craft](docs/iron_katana_craft.png)
+The katanas (wood/iron/gold/diamond) can be craft like a Minecraft sword with Bamboo instead of Stick
+
 # Compatibility
 
 Mods tested with Ninja armor
 
 - [Helmet Overlay](https://github.com/minecraft-fr-net/helmet-overlay-mod)
+- [Better Combat](https://github.com/ZsoltMolnarrr/BetterCombat)
