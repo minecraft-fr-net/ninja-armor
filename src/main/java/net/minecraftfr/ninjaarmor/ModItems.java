@@ -21,6 +21,7 @@ public class ModItems {
   public static final Item GOLDEN_KATANA = register(new SwordItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 3, -2.4F))), "golden_katana");
   public static final Item IRON_KATANA = register(new SwordItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 3, -2.4F))), "iron_katana");
   public static final Item DIAMOND_KATANA = register(new SwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 3, -2.4F))), "diamond_katana");
+  public static final Item NETHERITE_KATANA = register(new SwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -2.4F))), "netherite_katana");
 
   public static void initialize() {
     ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(itemGroup -> {
@@ -36,6 +37,7 @@ public class ModItems {
       itemGroup.add(ModItems.GOLDEN_KATANA);
       itemGroup.add(ModItems.IRON_KATANA);
       itemGroup.add(ModItems.DIAMOND_KATANA);
+      itemGroup.add(ModItems.NETHERITE_KATANA);
     });
   }
 
