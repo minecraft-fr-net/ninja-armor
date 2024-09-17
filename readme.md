@@ -19,7 +19,7 @@ All the armor can be craft as any vanilla armor with Bamboo
 
 - **Katana**
 
-The katanas (wood/iron/gold/diamond) can be craft like a Minecraft sword with Bamboo instead of Stick
+The katanas (wood/iron/gold/diamond/netherite) can be craft like a Minecraft sword with Bamboo instead of Stick
 
 ![iron katana craft](docs/iron_katana_craft.png)
 
