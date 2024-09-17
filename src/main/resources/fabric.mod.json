@@ -3,9 +3,9 @@
 	"id": "ninja-armor",
 	"version": "${version}",
 	"name": "Ninja Armor",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Add Ninja armor and weapons (Katana) with Fabric.",
 	"authors": [
-		"Me!"
+		"cprodhomme"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
