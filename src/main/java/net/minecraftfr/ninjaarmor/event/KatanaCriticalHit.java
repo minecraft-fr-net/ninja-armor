@@ -2,11 +2,10 @@ package net.minecraftfr.ninjaarmor.event;
 
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraftfr.ninjaarmor.item.ModItems;
+import net.minecraftfr.ninjaarmor.util.helpers.AttackHelper;
 
 // Katanas in gold, iron, diamond, and Netherite can 
 // instantly break bamboo with a critical hit
@@ -17,7 +16,7 @@ public class KatanaCriticalHit {
 
       if (isKatana(heldItem)) {
         if (world.getBlockState(pos).getBlock() == Blocks.BAMBOO) {
-          if (isCriticalHit(player)) {
+          if (AttackHelper.isCriticalHit(player)) {
             world.breakBlock(pos, true);
             return ActionResult.SUCCESS;
           }
@@ -32,14 +31,5 @@ public class KatanaCriticalHit {
            stack.getItem() == ModItems.IRON_KATANA ||
            stack.getItem() == ModItems.DIAMOND_KATANA ||
            stack.getItem() == ModItems.NETHERITE_KATANA;
-  }
-
-  private static boolean isCriticalHit(PlayerEntity player) {
-    return player.fallDistance > 0.0F
-      && !player.isOnGround()
-      && !player.isClimbing()
-      && !player.isTouchingWater()
-      && !player.hasStatusEffect(StatusEffects.BLINDNESS)
-      && !player.hasVehicle();
   }
 }
