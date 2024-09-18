@@ -39,6 +39,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
+	testImplementation "net.fabricmc:fabric-loader-junit:${project.loader_version}"
 }
 
 processResources {
@@ -84,5 +85,16 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+sourceSets {
+	test {
+		compileClasspath += client.compileClasspath
+		runtimeClasspath += client.runtimeClasspath
 	}
 }
