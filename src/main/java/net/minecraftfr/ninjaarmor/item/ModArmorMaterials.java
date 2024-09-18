@@ -1,4 +1,4 @@
-package net.minecraftfr.ninjaarmor;
+package net.minecraftfr.ninjaarmor.item;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +14,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraftfr.ninjaarmor.NinjaArmor;
 
 public class ModArmorMaterials {
   public static final RegistryEntry<ArmorMaterial> NINJA = registerMaterial(

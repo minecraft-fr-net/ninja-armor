@@ -6,7 +6,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraftfr.ninjaarmor.ModItems;
+import net.minecraftfr.ninjaarmor.item.ModItems;
 
 // Katanas in gold, iron, diamond, and Netherite can 
 // instantly break bamboo with a critical hit

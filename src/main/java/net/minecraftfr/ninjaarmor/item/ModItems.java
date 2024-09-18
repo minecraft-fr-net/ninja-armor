@@ -1,4 +1,4 @@
-package net.minecraftfr.ninjaarmor;
+package net.minecraftfr.ninjaarmor.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
@@ -9,6 +9,7 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraftfr.ninjaarmor.NinjaArmor;
 
 public class ModItems {
   public static final Item NINJA_HELMET = register(new ArmorItem(ModArmorMaterials.NINJA, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(5))), "ninja_helmet");

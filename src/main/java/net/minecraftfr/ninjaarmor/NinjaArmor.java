@@ -2,6 +2,8 @@ package net.minecraftfr.ninjaarmor;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraftfr.ninjaarmor.event.ModEvents;
+import net.minecraftfr.ninjaarmor.item.ModArmorMaterials;
+import net.minecraftfr.ninjaarmor.item.ModItems;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
