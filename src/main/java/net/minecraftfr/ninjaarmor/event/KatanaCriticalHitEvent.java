@@ -9,6 +9,14 @@ import net.minecraftfr.ninjaarmor.util.KatanaUtil;
 public class KatanaCriticalHitEvent {
   public static void register() {
     AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
+      if (player.isSpectator()) {
+        return ActionResult.PASS;
+      }
+      if (player.isCreative()) {
+        world.breakBlock(pos, false);
+        return ActionResult.PASS;
+      }
+
       ItemStack heldItem = player.getStackInHand(hand);
       Block block = world.getBlockState(pos).getBlock();
 
