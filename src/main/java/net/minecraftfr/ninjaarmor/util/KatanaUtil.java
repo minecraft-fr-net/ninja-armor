@@ -2,6 +2,7 @@ package net.minecraftfr.ninjaarmor.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraftfr.ninjaarmor.item.ModItems;
@@ -19,7 +20,10 @@ public class KatanaUtil {
   public static boolean canBreakBambooWithCriticalHit(PlayerEntity player, ItemStack heldItem, Block block) {
     if (isKatana(heldItem)) {
       if (block == Blocks.BAMBOO) {
-        return AttackHelper.isCriticalHit(player);
+        if (AttackHelper.isCriticalHit(player)) {
+          damageKatana(heldItem, player);
+          return true;
+        }
       }
     }
     return false;
@@ -31,5 +35,9 @@ public class KatanaUtil {
             stack.getItem() == ModItems.IRON_KATANA ||
             stack.getItem() == ModItems.DIAMOND_KATANA ||
             stack.getItem() == ModItems.NETHERITE_KATANA;
+  }
+
+  private static void damageKatana(ItemStack katana, PlayerEntity player) {
+    katana.damage(1, player, EquipmentSlot.MAINHAND);
   }
 }
