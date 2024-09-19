@@ -1,3 +1,9 @@
+## 1.2.1
+
+🐛 Apply one damage to the katana when the katana cut bamboo
+
+🐛 Player can break bamboo in creative in one shot
+
 ## 1.2.0
 
 ✨ Introducing a new feature for katanas in gold, iron, diamond, and Netherite! These powerful weapons can now instantly break bamboo with a critical hit, adding an extra layer of strategy and efficiency when using these blades in the wild.
