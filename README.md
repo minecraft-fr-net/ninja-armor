@@ -3,7 +3,7 @@
 
 Add Ninja armor and weapons (Katana)
 
-- ✨ When you wear the ninja armor, your username is hidden !
+- ✨ When you wear the ninja armor, **your username is hidden** !
 - ✨ Ninja boots make half as much noise
 - ✨ Katanas in gold, iron, diamond, and Netherite can instantly break bamboo with a critical hit, adding an extra layer of strategy and efficiency when using these blades in the wild.
 
