@@ -1,3 +1,7 @@
+## 1.3.0
+
+- ✨ Ninja boots make half as much noise
+
 ## 1.2.2
 
 - 🐛 Fix all craft
