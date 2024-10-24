@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
+import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
