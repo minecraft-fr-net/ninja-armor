@@ -1,17 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "# #",
     "###",
     "###"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:bamboo"
-    }
+    "#": "minecraft:bamboo"
   },
   "result": {
-    "id": "ninja-armor:ninja_chestplate",
-    "count": 1
+    "count": 1,
+    "id": "ninja-armor:ninja_chestplate"
   }
 }

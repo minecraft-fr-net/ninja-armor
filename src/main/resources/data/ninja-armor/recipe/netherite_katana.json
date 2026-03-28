@@ -1,20 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "N",
     "N",
     "B"
   ],
   "key": {
-    "N": {
-      "item": "minecraft:netherite_ingot"
-    },
-    "B": {
-      "item": "minecraft:bamboo"
-    }
+    "N": "#minecraft:netherite_tool_materials",
+    "B": "minecraft:bamboo"
   },
   "result": {
-    "id": "ninja-armor:netherite_katana",
-    "count": 1
+    "count": 1,
+    "id": "ninja-armor:netherite_katana"
   }
 }

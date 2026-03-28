@@ -1,20 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "I",
     "I",
     "B"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "B": {
-      "item": "minecraft:bamboo"
-    }
+    "I": "#minecraft:iron_tool_materials",
+    "B": "minecraft:bamboo"
   },
   "result": {
-    "id": "ninja-armor:iron_katana",
-    "count": 1
+    "count": 1,
+    "id": "ninja-armor:iron_katana"
   }
 }

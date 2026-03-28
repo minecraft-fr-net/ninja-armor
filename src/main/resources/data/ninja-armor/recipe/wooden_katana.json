@@ -1,20 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "W",
     "W",
     "B"
   ],
   "key": {
-    "W": {
-      "tag": "minecraft:planks"
-    },
-    "B": {
-      "item": "minecraft:bamboo"
-    }
+    "W": "#minecraft:wooden_tool_materials",
+    "B": "minecraft:bamboo"
   },
   "result": {
-    "id": "ninja-armor:wooden_katana",
-    "count": 1
+    "count": 1,
+    "id": "ninja-armor:wooden_katana"
   }
 }

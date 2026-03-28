@@ -1,20 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "S",
     "S",
     "B"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:stone"
-    },
-    "B": {
-      "item": "minecraft:bamboo"
-    }
+    "S": "#minecraft:stone_tool_materials",
+    "B": "minecraft:bamboo"
   },
   "result": {
-    "id": "ninja-armor:stone_katana",
-    "count": 1
+    "count": 1,
+    "id": "ninja-armor:stone_katana"
   }
 }
