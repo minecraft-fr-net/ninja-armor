@@ -1,0 +1,19 @@
+{
+	"schemaVersion": 1,
+	"id": "ninja-armor-gametest",
+	"version": "1.0.0",
+	"name": "Ninja Armor Game Tests",
+	"environment": "*",
+	"depends": {
+		"fabricloader": ">=0.18.0",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*",
+		"ninja-armor": "*"
+	},
+	"entrypoints": {
+		"fabric-gametest": [
+			"net.minecraftfr.ninjaarmor.gametest.NinjaArmorGameTestSuite"
+		]
+	}
+}

@@ -4,7 +4,7 @@
 Add Ninja armor and weapons (Katana)
 
 - ✨ When you wear the ninja armor, **your username is hidden** !
-- ✨ Ninja boots make half as much noise
+- ✨ With the **full ninja set** (helmet, chestplate, leggings, and boots), **footsteps are fully silent**: no block step sounds and no `STEP` game events, so **Sculk sensors** (and other listeners) do not react to your walking.
 - ✨ Katanas in gold, iron, diamond, and Netherite can instantly break bamboo with a critical hit, adding an extra layer of strategy and efficiency when using these blades in the wild.
 
 ![Ninja armor](docs/ninja_armor.png)
