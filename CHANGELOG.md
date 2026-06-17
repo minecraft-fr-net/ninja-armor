@@ -1,3 +1,13 @@
+## 1.4.1
+
+- 🔧 Fixer le nom d'utilisateur client à DevPlayer pour un UUID constant
+- 👷 Ajouter runClientGameTest à la CI avec Xvfb et Java 25
+- ✅ Ajouter les tests client GameTest pour la visibilité du name tag
+- 💬 Restaurer le commentaire inline dans KatanaUtil
+- 💬 Restaurer le commentaire Javadoc de KatanaUtil supprimé par erreur
+- ⬆️ Migrer vers Minecraft 26.1 / Java 25
+- 🔧 Ajouter le script de release et le workflow de publication Modrinth
+
 ## 1.3.0
 
 - ✨ Ninja boots make half as much noise
