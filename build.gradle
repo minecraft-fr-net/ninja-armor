@@ -27,6 +27,13 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
+
+	runs {
+		// Nom d'utilisateur fixe pour avoir un UUID constant (74ffd488-66e1-390e-b3a4-68445a2d0ab8)
+		client {
+			programArgs "--username", "DevPlayer"
+		}
+	}
 }
 
 fabricApi {
