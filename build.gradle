@@ -34,7 +34,7 @@ fabricApi {
 		createSourceSet = true
 		modId = "ninja-armor-gametest"
 		enableGameTests = true
-		enableClientGameTests = false
+		enableClientGameTests = true
 		eula = true
 	}
 }

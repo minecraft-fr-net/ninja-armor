@@ -6,7 +6,7 @@
 	"environment": "*",
 	"depends": {
 		"fabricloader": ">=0.18.0",
-		"minecraft": "~1.21.11",
+		"minecraft": "*",
 		"java": ">=21",
 		"fabric-api": "*",
 		"ninja-armor": "*"
@@ -14,6 +14,9 @@
 	"entrypoints": {
 		"fabric-gametest": [
 			"net.minecraftfr.ninjaarmor.gametest.NinjaArmorGameTestSuite"
+		],
+		"fabric-client-gametest": [
+			"net.minecraftfr.ninjaarmor.gametest.NinjaArmorClientGameTestSuite"
 		]
 	}
 }
