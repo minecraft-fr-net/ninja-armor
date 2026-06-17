@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+# ── Version actuelle ──────────────────────────────────────────────────────────
+CURRENT_VERSION=$(grep "^mod_version=" gradle.properties | cut -d'=' -f2)
+SEMVER=$(echo "$CURRENT_VERSION" | cut -d'+' -f1)
+MC_VERSION=$(echo "$CURRENT_VERSION" | cut -d'+' -f2)
+
+MAJOR=$(echo "$SEMVER" | cut -d'.' -f1)
+MINOR=$(echo "$SEMVER" | cut -d'.' -f2)
+PATCH=$(echo "$SEMVER" | cut -d'.' -f3)
+
+V_MAJOR="$((MAJOR + 1)).0.0+$MC_VERSION"
+V_MINOR="$MAJOR.$((MINOR + 1)).0+$MC_VERSION"
+V_PATCH="$MAJOR.$MINOR.$((PATCH + 1))+$MC_VERSION"
+
+echo ""
+echo "Version actuelle : $CURRENT_VERSION"
+echo ""
+echo "  1) major  →  $V_MAJOR"
+echo "  2) minor  →  $V_MINOR"
+echo "  3) patch  →  $V_PATCH"
+echo "  4) custom"
+echo ""
+read -rp "Choix [1-4] : " CHOICE
+
+case "$CHOICE" in
+  1) NEW_SEMVER="$((MAJOR + 1)).0.0" ;;
+  2) NEW_SEMVER="$MAJOR.$((MINOR + 1)).0" ;;
+  3) NEW_SEMVER="$MAJOR.$MINOR.$((PATCH + 1))" ;;
+  4) read -rp "Semver (sans +MC) : " NEW_SEMVER ;;
+  *) echo "Choix invalide."; exit 1 ;;
+esac
+
+NEW_VERSION="$NEW_SEMVER+$MC_VERSION"
+TAG="V$NEW_VERSION"
+
+echo ""
+echo "Nouvelle version : $NEW_VERSION  (tag : $TAG)"
+read -rp "Confirmer ? [y/N] : " CONFIRM
+[[ "$CONFIRM" =~ ^[yY]$ ]] || { echo "Annulé."; exit 0; }
+
+# ── Vérifications ─────────────────────────────────────────────────────────────
+if git rev-parse "$TAG" &>/dev/null; then
+  echo "Erreur : le tag $TAG existe déjà." >&2
+  exit 1
+fi
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "Erreur : des fichiers non commités existent. Commitez-les d'abord." >&2
+  exit 1
+fi
+
+# ── Changelog ─────────────────────────────────────────────────────────────────
+LAST_TAG=$(git tag --list | sort -V | tail -1)
+
+if [[ -z "$LAST_TAG" ]]; then
+  COMMITS=$(git log --pretty=format:"- %s" --no-merges)
+else
+  COMMITS=$(git log "$LAST_TAG"..HEAD --pretty=format:"- %s" --no-merges)
+fi
+
+if [[ -z "$COMMITS" ]]; then
+  COMMITS="- Aucun changement notable"
+fi
+
+CHANGELOG_ENTRY="## $NEW_SEMVER
+
+$COMMITS
+"
+
+# Insérer en tête du CHANGELOG.md
+if [[ -f CHANGELOG.md ]]; then
+  printf '%s\n%s' "$CHANGELOG_ENTRY" "$(cat CHANGELOG.md)" > CHANGELOG.md
+else
+  printf '%s' "$CHANGELOG_ENTRY" > CHANGELOG.md
+fi
+
+echo ""
+echo "── Changelog mis à jour ──────────────────────────────────"
+echo "$CHANGELOG_ENTRY"
+
+# ── gradle.properties ─────────────────────────────────────────────────────────
+sed -i '' "s/^mod_version=.*/mod_version=$NEW_VERSION/" gradle.properties
+
+# ── Commit ────────────────────────────────────────────────────────────────────
+git add gradle.properties CHANGELOG.md
+git commit -m "🔖  Set version $NEW_VERSION"
+
+# ── Tag ───────────────────────────────────────────────────────────────────────
+git tag "$TAG"
+
+# ── Push ──────────────────────────────────────────────────────────────────────
+git push origin HEAD
+git push origin "$TAG"
+
+echo ""
+echo "✅  Version $NEW_VERSION taguée et pushée."
+echo "    La CI va build et publier sur Modrinth."
