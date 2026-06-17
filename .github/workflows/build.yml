@@ -1,16 +1,12 @@
 # Build du mod et exécution des vérifications à chaque push / pull request.
-# Avec Fabric Loom + fabricApi.configureTests, la tâche Gradle `check` inclut
-# `runGameTest` (Game Tests serveur). La tâche `build` dépend de `check`, donc
-# les tests sont bien lancés avec `./gradlew build`.
+# - `./gradlew build` : compile + JUnit + Game Tests serveur (runGameTest)
+# - `./gradlew runClientGameTest` : tests client avec screenshots (nécessite Xvfb)
 
 name: build
 on: [pull_request, push]
 
 jobs:
   build:
-    strategy:
-      matrix:
-        java: [21]
     runs-on: ubuntu-22.04
     steps:
       - name: checkout repository
@@ -19,20 +15,25 @@ jobs:
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v2
 
-      - name: setup jdk ${{ matrix.java }}
+      - name: setup jdk 25
         uses: actions/setup-java@v4
         with:
-          java-version: ${{ matrix.java }}
+          java-version: '25'
           distribution: 'microsoft'
 
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
 
-      - name: Build and run tests (check: JUnit + Fabric Game Tests)
+      - name: Build and run server-side tests
         run: ./gradlew build --no-daemon --stacktrace
 
+      - name: Install Xvfb
+        run: sudo apt-get install -y xvfb
+
+      - name: Run client game tests
+        run: xvfb-run ./gradlew runClientGameTest --no-daemon --stacktrace
+
       - name: capture build artifacts
-        if: ${{ matrix.java == 21 }}
         uses: actions/upload-artifact@v4
         with:
           name: Artifacts
