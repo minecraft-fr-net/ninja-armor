@@ -29,6 +29,7 @@ public class KatanaUtil {
     return false;
   }
 
+  // Vérifie si l'item est un katana en or, fer, diamant ou Netherite
   private static boolean isKatana(ItemStack stack) {
     return stack.getItem() == ModItems.GOLDEN_KATANA ||
             stack.getItem() == ModItems.IRON_KATANA ||
