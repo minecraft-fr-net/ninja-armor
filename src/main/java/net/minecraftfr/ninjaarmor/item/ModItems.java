@@ -1,32 +1,32 @@
 package net.minecraftfr.ninjaarmor.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraftfr.ninjaarmor.NinjaArmor;
 
 public class ModItems {
 	public static final Item NINJA_HELMET = register(
-		new Item(baseSettings("ninja_helmet").armor(ModArmorMaterials.NINJA, EquipmentType.HELMET).maxDamage(EquipmentType.HELMET.getMaxDamage(5))),
+		new Item(baseSettings("ninja_helmet").humanoidArmor(ModArmorMaterials.NINJA, ArmorType.HELMET)),
 		"ninja_helmet"
 	);
 	public static final Item NINJA_CHESTPLATE = register(
-		new Item(baseSettings("ninja_chestplate").armor(ModArmorMaterials.NINJA, EquipmentType.CHESTPLATE).maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(5))),
+		new Item(baseSettings("ninja_chestplate").humanoidArmor(ModArmorMaterials.NINJA, ArmorType.CHESTPLATE)),
 		"ninja_chestplate"
 	);
 	public static final Item NINJA_LEGGINGS = register(
-		new Item(baseSettings("ninja_leggings").armor(ModArmorMaterials.NINJA, EquipmentType.LEGGINGS).maxDamage(EquipmentType.LEGGINGS.getMaxDamage(5))),
+		new Item(baseSettings("ninja_leggings").humanoidArmor(ModArmorMaterials.NINJA, ArmorType.LEGGINGS)),
 		"ninja_leggings"
 	);
 	public static final Item NINJA_BOOTS = register(
-		new Item(baseSettings("ninja_boots").armor(ModArmorMaterials.NINJA, EquipmentType.BOOTS).maxDamage(EquipmentType.BOOTS.getMaxDamage(5))),
+		new Item(baseSettings("ninja_boots").humanoidArmor(ModArmorMaterials.NINJA, ArmorType.BOOTS)),
 		"ninja_boots"
 	);
 
@@ -38,29 +38,29 @@ public class ModItems {
 	public static final Item NETHERITE_KATANA = register(new Item(baseSettings("netherite_katana").sword(ToolMaterial.NETHERITE, 3.0F, -2.4F)), "netherite_katana");
 
 	public static void initialize() {
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(itemGroup -> {
-			itemGroup.add(ModItems.NINJA_HELMET);
-			itemGroup.add(ModItems.NINJA_CHESTPLATE);
-			itemGroup.add(ModItems.NINJA_LEGGINGS);
-			itemGroup.add(ModItems.NINJA_BOOTS);
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
+			entries.accept(ModItems.NINJA_HELMET);
+			entries.accept(ModItems.NINJA_CHESTPLATE);
+			entries.accept(ModItems.NINJA_LEGGINGS);
+			entries.accept(ModItems.NINJA_BOOTS);
 
-			itemGroup.add(ModItems.WOODEN_KATANA);
-			itemGroup.add(ModItems.STONE_KATANA);
-			itemGroup.add(ModItems.GOLDEN_KATANA);
-			itemGroup.add(ModItems.IRON_KATANA);
-			itemGroup.add(ModItems.DIAMOND_KATANA);
-			itemGroup.add(ModItems.NETHERITE_KATANA);
+			entries.accept(ModItems.WOODEN_KATANA);
+			entries.accept(ModItems.STONE_KATANA);
+			entries.accept(ModItems.GOLDEN_KATANA);
+			entries.accept(ModItems.IRON_KATANA);
+			entries.accept(ModItems.DIAMOND_KATANA);
+			entries.accept(ModItems.NETHERITE_KATANA);
 		});
 	}
 
-	private static Item.Settings baseSettings(String id) {
-		Identifier itemId = Identifier.of(NinjaArmor.MOD_ID, id);
-		RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, itemId);
-		return new Item.Settings().registryKey(key);
+	private static Item.Properties baseSettings(String id) {
+		Identifier itemId = Identifier.fromNamespaceAndPath(NinjaArmor.MOD_ID, id);
+		ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, itemId);
+		return new Item.Properties().setId(key);
 	}
 
 	public static Item register(Item item, String id) {
-		Identifier itemID = Identifier.of(NinjaArmor.MOD_ID, id);
-		return Registry.register(Registries.ITEM, itemID, item);
+		Identifier itemID = Identifier.fromNamespaceAndPath(NinjaArmor.MOD_ID, id);
+		return Registry.register(BuiltInRegistries.ITEM, itemID, item);
 	}
 }

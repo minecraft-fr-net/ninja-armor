@@ -1,12 +1,12 @@
 package net.minecraftfr.ninjaarmor.mixin;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftfr.ninjaarmor.item.ModItems;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class EntityMixin {
   @Inject(method = "playStepSound", at = @At("HEAD"), cancellable = true)
   private void ninjaarmor$onPlayStepSound(BlockPos pos, BlockState state, CallbackInfo ci) {
-    if (!((Object) this instanceof PlayerEntity player)) {
+    if (!((Object) this instanceof Player player)) {
       return;
     }
     if (isWearingFullNinjaArmor(player)) {
@@ -27,12 +27,12 @@ public abstract class EntityMixin {
   }
 
   @Inject(
-    method = "emitGameEvent(Lnet/minecraft/registry/entry/RegistryEntry;Lnet/minecraft/entity/Entity;)V",
+    method = "gameEvent(Lnet/minecraft/core/Holder;Lnet/minecraft/world/entity/Entity;)V",
     at = @At("HEAD"),
     cancellable = true
   )
-  private void ninjaarmor$silentStepGameEvent(RegistryEntry<GameEvent> event, Entity entity, CallbackInfo ci) {
-    if (!((Object) this instanceof PlayerEntity player)) {
+  private void ninjaarmor$silentStepGameEvent(Holder<GameEvent> event, Entity entity, CallbackInfo ci) {
+    if (!((Object) this instanceof Player player)) {
       return;
     }
     if (event == GameEvent.STEP && isWearingFullNinjaArmor(player)) {
@@ -40,10 +40,10 @@ public abstract class EntityMixin {
     }
   }
 
-  private static boolean isWearingFullNinjaArmor(PlayerEntity player) {
-    return player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.NINJA_HELMET
-      && player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.NINJA_CHESTPLATE
-      && player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.NINJA_LEGGINGS
-      && player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.NINJA_BOOTS;
+  private static boolean isWearingFullNinjaArmor(Player player) {
+    return player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.NINJA_HELMET
+      && player.getItemBySlot(EquipmentSlot.CHEST).getItem() == ModItems.NINJA_CHESTPLATE
+      && player.getItemBySlot(EquipmentSlot.LEGS).getItem() == ModItems.NINJA_LEGGINGS
+      && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.NINJA_BOOTS;
   }
 }

@@ -1,30 +1,30 @@
 package net.minecraftfr.ninjaarmor.event;
 
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftfr.ninjaarmor.util.KatanaUtil;
 
 public class KatanaCriticalHitEvent {
   public static void register() {
     AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
       if (player.isSpectator()) {
-        return ActionResult.PASS;
+        return InteractionResult.PASS;
       }
       if (player.isCreative()) {
-        world.breakBlock(pos, false);
-        return ActionResult.PASS;
+        world.destroyBlock(pos, false, player, 512);
+        return InteractionResult.PASS;
       }
 
-      ItemStack heldItem = player.getStackInHand(hand);
+      ItemStack heldItem = player.getItemInHand(hand);
       Block block = world.getBlockState(pos).getBlock();
 
       if (KatanaUtil.canBreakBambooWithCriticalHit(player, heldItem, block)) {
-        world.breakBlock(pos, true);
-        return ActionResult.SUCCESS;
+        world.destroyBlock(pos, true, player, 512);
+        return InteractionResult.SUCCESS;
       }
-      return ActionResult.PASS;
+      return InteractionResult.PASS;
     });
   }
 }
