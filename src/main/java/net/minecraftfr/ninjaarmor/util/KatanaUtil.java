@@ -9,6 +9,14 @@ import net.minecraftfr.ninjaarmor.item.ModItems;
 import net.minecraftfr.ninjaarmor.util.helpers.AttackHelper;
 
 public class KatanaUtil {
+  /**
+   * Vérifie si un joueur peut détruire un bambou en un seul coup avec un katana.
+   *
+   * @param player Le joueur qui attaque.
+   * @param heldItem L'arme dans la main du joueur.
+   * @param block Le bloc attaqué.
+   * @return true si le joueur peut détruire le bambou en un coup critique.
+   */
   public static boolean canBreakBambooWithCriticalHit(Player player, ItemStack heldItem, Block block) {
     if (isKatana(heldItem)) {
       if (block == Blocks.BAMBOO) {
